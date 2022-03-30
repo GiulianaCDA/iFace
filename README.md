@@ -1,2 +1,3 @@
 # iFace
-Uma rede de relacionamentos
+
+Há uma função para cadastrar e editar novos usuários. 
