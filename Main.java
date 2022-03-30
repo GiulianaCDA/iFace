@@ -21,8 +21,7 @@ public class Main {
             
             Scanner input = new Scanner(System.in);
             int option = input.nextInt();
-            int size = users.size() - 1;
-            User current_user = users.get(size);
+            User current_user = null;
     
             if(option == 1) {
                 exists = true;
@@ -41,7 +40,6 @@ public class Main {
                 users.add(new_user);
 
                 current_user = new_user;
-                System.out.print(current_user);
 
             }
 
