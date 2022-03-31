@@ -9,62 +9,85 @@ public class Main {
         ArrayList<User> users = new ArrayList<User>();
         boolean run = true;
         boolean exists = false;
+        User current_user = null;
 
-        System.out.print("\n\n------- BEM VINDO AO IFACE! -------\n");
+        System.out.print("\n-----------------------------\n");
+        System.out.print("     BEM VINDO AO IFACE!     ");
+        System.out.print("\n-----------------------------\n");
+
+        try{
+            Thread.sleep(1000);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
 
         while(run){
-            System.out.print("\n-- Escolha uma ação: --\n");
+            System.out.print("\n\n-- Escolha uma ação --\n");
             System.out.print("\n[1] Cadastrar usuário\n");
             System.out.print("\n[2] Editar perfil\n");
             System.out.print("\n[3] Recuperar informações\n");
-            System.out.print("\n[4] Verificar dados\n\n");
-            
+            System.out.print("\n[4] Verificar dados\n");
+            System.out.print("_________________________\n\n");
+            System.out.print("Resposta [1-4]: ");
             Scanner input = new Scanner(System.in);
             int option = input.nextInt();
-            User current_user = null;
     
             if(option == 1) {
                 exists = true;
                 String name, name_user, password;
     
-                System.out.print("\nDigite seu nome: \n");
+                System.out.print("\n\n-- CADASTRO DE USUÁRIO --\n");
+                System.out.print("\nDigite seu nome: ");
                 name = input.next();
         
-                System.out.print("\nDigite seu nome de usuário:\n");
+                System.out.print("Digite seu nome de usuário: ");
                 name_user = input.next();
         
-                System.out.print("\nDigite uma senha forte: \n");
+                System.out.print("Digite uma senha forte: ");
                 password = input.next();
     
+                System.out.print("\n- USUÁRIO CADASTRADO! -");
+
                 User new_user = new User(name, name_user, password);
                 users.add(new_user);
 
                 current_user = new_user;
 
+                try{
+                    Thread.sleep(1000);
+                }
+                catch (Exception e) {
+                    System.out.println(e);
+                }
+
             }
 
-            else if(option == 2){
+            else if(option == 2 && exists){
 
-                System.out.print("\n O que você deseja alterar? \n");
+                System.out.print("\n-- O que você deseja alterar? --\n");
 
                 System.out.print("\n [1] Nome \n");
                 System.out.print("\n [2] Nome de usuário \n");
                 System.out.print("\n [3] Senha \n");
+                System.out.print("_________________________\n\n");
+                System.out.print("Resposta [1-3]: ");
 
                 int setOption = input.nextInt();
 
                 if(setOption == 1){
-                    System.out.print("\n Digite seu novo nome: \n");
+                    System.out.print("\nNovo nome: ");
                     String name = input.next();
                     current_user.setName(name);
                 }
                 else if(setOption == 2){
-                    System.out.print("\n Digite seu novo nome de usuário: \n");
+                    System.out.print("\nNovo nome de usuário: ");
                     String name_user = input.next();
                     current_user.setNameUser(name_user);
+
                 }
                 else if(setOption == 3){
-                    System.out.print("\n Digite sua nova senha: \n");
+                    System.out.print("\nNova senha: ");
                     String password = input.next();
                     current_user.setPassword(password);
                 }
@@ -72,6 +95,14 @@ public class Main {
                     System.out.print("\nOpção inválida\n");
                 }
 
+                System.out.print("\n- EDIÇÃO REALIZADA! -");
+
+                try{
+                    Thread.sleep(1000);
+                }
+                catch (Exception e) {
+                    System.out.println(e);
+                }
             }
 
             else if(option == 4){
