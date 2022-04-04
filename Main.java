@@ -83,15 +83,26 @@ public class Main {
             }
 
             else if(option == 4) {
-                User response = User.login(users);
+                if(currentUser == null && exists == true){
+                    User response = User.login(users);
 
-                if(response != null){
-                    currentUser = response; 
-                    System.out.println("Login realizado!"); 
+                    if(response != null){
+                        currentUser = response; 
+                        System.out.println("Login realizado!"); 
+                    }
+                    else{
+                        System.out.println("Usuário ou senha incorretos.");
+                    }
+                }
+                else if(exists == false){
+                    System.out.println("\n\n Não há usuários cadastrados \n\n"); 
                 }
                 else{
-                    System.out.println("Usuário ou senha incorretos.");
+                    System.out.println("\n\n Faça logout \n\n"); 
+                    time();
                 }
+
+                time();
             }
 
             else if(option == 5) {
