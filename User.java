@@ -1,6 +1,6 @@
 import java.util.Scanner;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.ArrayList; 
+
 
 public class User {
 
@@ -48,6 +48,27 @@ public class User {
 
     }
 
+    public static User login(ArrayList<User> users){ 
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("\nNome de usuário\n");
+        String name = input.next();
+
+
+        System.out.print("\nSenha\n");
+        String password = input.next();
+
+
+        for(User i : users) {   
+
+            if(i.nameUser.equals(name)){ 
+                return i;
+            } 
+        }  
+
+        return null;
+    }
     public void setName(String newName){
         this.name = newName;
     }

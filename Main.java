@@ -14,9 +14,10 @@ public class Main {
         System.out.print("\n[1] Cadastrar usuário\n");
         System.out.print("\n[2] Editar perfil\n");
         System.out.print("\n[3] Recuperar informações\n");
-        System.out.print("\n[4] Verificar dados\n");
+        System.out.print("\n[4] Login\n");
+        System.out.print("\n[5] Logout\n");
         System.out.print("_________________________\n\n");
-        System.out.print("Resposta [1-4]: ");
+        System.out.print("Resposta [1-5]: ");
     }
 
     public static void time(){
@@ -46,6 +47,7 @@ public class Main {
             Scanner input = new Scanner(System.in);
             int option = input.nextInt();
 
+                
             if(option == 1) {
 
                 exists = true;
@@ -57,22 +59,44 @@ public class Main {
             }
 
             else if(option == 2){
-                if(exists){
-                    System.out.print("\n\n iremos editar. \n\n");
+                if(currentUser != null){
                     currentUser = Profile.editProfile(currentUser);
                 }
                 else{
-                    System.out.print("\n\n Ainda não há um usuário cadastrado. \n\n");
+                    System.out.print("\n\n Faça login. \n\n");
                 }
 
                 time();
             }
 
 
-            else if(option == 4){
-                currentUser.printUser();
-                currentUser.profile.printProfile();
+            else if(option == 3) {
+                if(currentUser != null){
+                    currentUser.printUser();
+                    currentUser.profile.printProfile();
+                }
+                else{
+                    System.out.print("\n\n Faça login. \n\n");
+                }
+
                 time();
+            }
+
+            else if(option == 4) {
+                User response = User.login(users);
+
+                if(response != null){
+                    currentUser = response; 
+                    System.out.println("Login realizado!"); 
+                }
+                else{
+                    System.out.println("Usuário ou senha incorretos.");
+                }
+            }
+
+            else if(option == 5) {
+                currentUser = null;
+                System.out.print("\n\n Logout feito! \n\n");
             }
         }
         
