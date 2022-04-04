@@ -1,22 +1,25 @@
 import java.util.Scanner;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 public class User {
-    private String name;
-    private String name_user;
-    private String password;
-    private Profile profile;
 
-    public User(String name, String name_user, String password) {
+    private String name;
+    private String nameUser;
+    private String password;
+    public Profile profile;
+
+    public User(String name, String nameUser, String password) {
 
         this.name = name;
-        this.name_user = name_user;
+        this.nameUser = nameUser;
         this.password = password;
         this.profile = new Profile();
     }
 
     public static User createUser(){
 
-        String name, name_user, password;
+        String name, nameUser, password;
         Scanner input = new Scanner(System.in);
 
         System.out.print("\n\n-- CADASTRO DE USUÁRIO --\n");
@@ -24,34 +27,37 @@ public class User {
         name = input.next();
 
         System.out.print("Digite seu nome de usuário: ");
-        name_user = input.next();
+        nameUser = input.next();
 
         System.out.print("Digite uma senha forte: ");
         password = input.next();
 
-        User new_user = new User(name, name_user, password);
+        User new_user = new User(name, nameUser, password);
 
         System.out.print("\n- USUÁRIO CADASTRADO! -");
 
         return new_user;
     }
 
-    public String printUser(){
-        return "nome: " + this.name +
-                "\n nome de usuário: " + this.name_user +
-                "\n senha: " + this.password;
+    public void printUser(){
+
+        System.out.println('\n');
+        System.out.println("Nome: " + this.name);
+        System.out.println("Nome de usuário: " + this.nameUser);
+        System.out.println("Senha: " + this.password);
+
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setName(String newName){
+        this.name = newName;
     }
 
-    public void setNameUser(String name_user){
-        this.name_user = name_user;
+    public void setNameUser(String newNameUser){
+        this.nameUser = newNameUser;
     }
 
-    public void setPassword(String password){
-        this.password = password;
+    public void setPassword(String newPassword){
+        this.password = newPassword;
     }
     
 }
