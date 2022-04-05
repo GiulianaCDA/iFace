@@ -52,11 +52,11 @@ public class User {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("\nNome de usuário\n");
+        System.out.print("\nNome de usuário: ");
         String name = input.next();
 
 
-        System.out.print("\nSenha\n");
+        System.out.print("\nSenha: ");
         String password = input.next();
 
 

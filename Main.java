@@ -111,10 +111,10 @@ public class Main {
 
                     if(response != null){
                         currentUser = response; 
-                        System.out.println("Login realizado!"); 
+                        System.out.println("\nLogin realizado!"); 
                     }
                     else{
-                        System.out.println("Usuário ou senha incorretos.");
+                        System.out.println("\nUsuário ou senha incorretos.");
                     }
 
                     time();
