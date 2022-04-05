@@ -140,18 +140,43 @@ public class Profile {
     public ArrayList<User> Friend(ArrayList<User> users, User currentUser){   
 
         int option = menuFriend(); 
-
         Scanner input = new Scanner(System.in);
 
-        System.out.print("\n\nQuem você quer ter como amigo? (Digite o nome de usuário)\n\n");
-        String nameUser = input.next();
+        switch(option){
+            case 1:
+                System.out.print("\n\nDigite o nickname do usuário que você deseja enviar solicitação: \n\n");
+                String nameUser = input.next();
+                
+                for(User i : users) {   
         
-        for(User i : users) {   
+                    if(i.nameUser.equals(nameUser)){ 
+                        i.profile.request.add(currentUser);
+                    } 
+                }  
+                System.out.print("\nSolicitação enviada!\n");
 
-            if(i.nameUser.equals(nameUser)){ 
-                i.profile.request.add(currentUser);
-            } 
-        }  
+            case 2:
+                for(User i : request){
+
+                    System.out.print("\n" + i.name + " quer ser seu amigo\n");
+                    System.out.print("\n[1] Aceitar \n");
+                    System.out.print("\n[2] Recusar \n");
+                    System.out.print("_________________________\n\n");
+                    System.out.print("Resposta [1-2]: ");
+
+                    option = input.nextInt();
+                    if(option == 1){
+                        friends.add(i);
+                        System.out.print("\nSolicitação aceita! \n");
+                    } 
+                    else{
+                        System.out.print("\nSolicitação recusada! \n");
+                    }
+                }
+
+                request.clear();
+                
+        }
 
         return users;
 

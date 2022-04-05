@@ -77,6 +77,8 @@ public class Main {
                 else{
                     System.out.print("\n\n Faça login. \n\n");
                 }
+
+                time();
             }
 
             else if(option == 4) {
