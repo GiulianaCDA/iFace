@@ -1,12 +1,14 @@
 import java.util.Scanner;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.ArrayList; 
+
 
 public class Profile {
 
     private String hobbie;
     private String status; 
     private int age;
+    public ArrayList<User> friends = new ArrayList<User>();
+    public ArrayList<User> request = new ArrayList<User>();
 
     public Profile(){
         
@@ -18,7 +20,7 @@ public class Profile {
         this.age = age;
     }
 
-    public static int menu(){
+    public static int menuEdit(){
 
         System.out.print("\n-- O que você deseja editar? --\n");
 
@@ -39,7 +41,7 @@ public class Profile {
 
     public static User editProfile(User user){
 
-        int option = menu();
+        int option = menuEdit();
         Scanner input = new Scanner(System.in);
 
         switch(option) {
@@ -112,8 +114,35 @@ public class Profile {
             System.out.println("Idade: não existe");
         }
 
+        if(friends.size() != 0){
+            for(User i : request) {   
+                System.out.println(i.name + " ");
+            } 
+        }
+
     }
 
+    public ArrayList<User> Friend(ArrayList<User> users, User currentUser){   
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("\n[1] Enviar solicitação de amizade\n");
+        System.out.print("\n[2] Visualizar solicitações de amizade\n");
+        System.out.print("_________________________\n\n");
+        System.out.print("Resposta [1-6]: ");
+
+        System.out.print("\n\nQuem você quer ter como amigo? (Digite o nome de usuário)\n\n");
+        String nameUser = input.next();
+        
+        for(User i : users) {   
+
+            if(i.nameUser.equals(nameUser)){ 
+                i.profile.request.add(currentUser);
+            } 
+        }  
+
+        return users;
+
+    }
     public void setHobbie(String newHobbie) {
         this.hobbie = newHobbie;
     }

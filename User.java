@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class User {
 
-    private String name;
-    private String nameUser;
+    public String name;
+    public String nameUser;
     private String password;
     public Profile profile;
 

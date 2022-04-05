@@ -13,11 +13,12 @@ public class Main {
         System.out.print("\n\n-- Escolha uma ação --\n");
         System.out.print("\n[1] Cadastrar usuário\n");
         System.out.print("\n[2] Editar perfil\n");
-        System.out.print("\n[3] Recuperar informações\n");
-        System.out.print("\n[4] Login\n");
-        System.out.print("\n[5] Logout\n");
+        System.out.print("\n[3] Adicionar/aceitar amigo\n");
+        System.out.print("\n[4] Recuperar informações\n");
+        System.out.print("\n[5] Login\n");
+        System.out.print("\n[6] Logout\n");
         System.out.print("_________________________\n\n");
-        System.out.print("Resposta [1-5]: ");
+        System.out.print("Resposta [1-6]: ");
     }
 
     public static void time(){
@@ -58,7 +59,7 @@ public class Main {
                 time();
             }
 
-            else if(option == 2){
+            else if(option == 2) {
                 if(currentUser != null){
                     currentUser = Profile.editProfile(currentUser);
                 }
@@ -69,8 +70,16 @@ public class Main {
                 time();
             }
 
+            else if(option == 3) {  
+                if(currentUser != null){
+                    users = currentUser.profile.Friend(users, currentUser);
+                }
+                else{
+                    System.out.print("\n\n Faça login. \n\n");
+                }
+            }
 
-            else if(option == 3) {
+            else if(option == 4) {
                 if(currentUser != null){
                     currentUser.printUser();
                     currentUser.profile.printProfile();
@@ -82,7 +91,7 @@ public class Main {
                 time();
             }
 
-            else if(option == 4) {
+            else if(option == 5) {
                 if(currentUser == null && exists == true){
                     User response = User.login(users);
 
@@ -105,7 +114,7 @@ public class Main {
                 time();
             }
 
-            else if(option == 5) {
+            else if(option == 6) {
                 currentUser = null;
                 System.out.print("\n\n Logout feito! \n\n");
             }
