@@ -16,8 +16,9 @@ public class Main {
         System.out.print("\n[3] Adicionar/aceitar amigo\n");
         System.out.print("\n[4] Enviar mensagem\n");
         System.out.print("\n[5] Recuperar informações\n");
-        System.out.print("\n[6] Login\n");
-        System.out.print("\n[7] Logout\n");
+        System.out.print("\n[6] Criar comunidade\n");
+        System.out.print("\n[7] Login\n");
+        System.out.print("\n[8] Logout\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-7]: ");
     }
@@ -37,6 +38,8 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<User> users = new ArrayList<User>();
+        ArrayList<Community> allCommunities = new ArrayList<Community>();
+
         boolean run = true;
         boolean exists = false;
         User currentUser = null;
@@ -106,6 +109,16 @@ public class Main {
             }
 
             else if(option == 6) {
+                if(currentUser != null){
+                    Community newCommunity = Community.createCommunity(currentUser);
+                    allCommunities.add(newCommunity);
+                }
+                else{
+                    System.out.print("\n\n Faça login. \n\n");
+                }
+            }
+
+            else if(option == 7) {
                 if(currentUser == null && exists == true){
                     User response = User.login(users);
 
@@ -130,11 +143,10 @@ public class Main {
                 time();
             }
 
-            else if(option == 7) {
+            else if(option == 8) {
                 currentUser = null;
                 System.out.print("\n\n Logout feito! \n\n");
                 time();
-
             }
         }
         

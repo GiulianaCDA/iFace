@@ -11,6 +11,7 @@ public class Profile {
     public ArrayList<User> friends = new ArrayList<User>();
     public ArrayList<User> request = new ArrayList<User>();
     public ArrayList<Message> messages = new ArrayList<Message>();
+    public ArrayList<Community> communities = new ArrayList<Community>();
 
     public Profile(){
         
