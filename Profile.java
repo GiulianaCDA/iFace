@@ -144,7 +144,7 @@ public class Profile {
 
         switch(option){
             case 1:
-                System.out.print("\n\nDigite o nickname do usuário que você deseja enviar solicitação: \n\n");
+                System.out.print("\n\nEnviar solicitação para (nickname): \n\n");
                 String nameUser = input.next();
                 
                 for(User i : users) {   
