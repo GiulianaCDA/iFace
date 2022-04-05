@@ -16,7 +16,7 @@ public class Main {
         System.out.print("\n[3] Adicionar/aceitar amigo\n");
         System.out.print("\n[4] Enviar mensagem\n");
         System.out.print("\n[5] Recuperar informações\n");
-        System.out.print("\n[6] Criar comunidade\n");
+        System.out.print("\n[6] Comunidades\n");
         System.out.print("\n[7] Login\n");
         System.out.print("\n[8] Logout\n");
         System.out.print("_________________________\n\n");
@@ -110,12 +110,23 @@ public class Main {
 
             else if(option == 6) {
                 if(currentUser != null){
-                    Community newCommunity = Community.createCommunity(currentUser);
-                    allCommunities.add(newCommunity);
+                    int choice = Community.menu();
+
+                    switch(choice){
+                        case 1:
+                            Community newCommunity = Community.createCommunity(currentUser);
+                            allCommunities.add(newCommunity);
+                            break;
+                        case 2:
+                            allCommunities = Community.enterCommunity(currentUser, allCommunities);
+                            break;
+                    }
                 }
                 else{
                     System.out.print("\n\n Faça login. \n\n");
                 }
+
+                time();
             }
 
             else if(option == 7) {
