@@ -39,6 +39,21 @@ public class Profile {
         return option;
     }
 
+    public static int menuFriend(){
+
+        System.out.print("\n-- O que você deseja fazer? --\n");
+
+        System.out.print("\n[1] Enviar solicitação \n");
+        System.out.print("\n[2] Verificar solitações \n");
+        System.out.print("_________________________\n\n");
+        System.out.print("Resposta [1-2]: ");
+
+        Scanner input = new Scanner(System.in);
+        int option = input.nextInt();
+
+        return option;
+    }
+
     public static User editProfile(User user){
 
         int option = menuEdit();
@@ -124,11 +139,9 @@ public class Profile {
 
     public ArrayList<User> Friend(ArrayList<User> users, User currentUser){   
 
+        int option = menuFriend(); 
+
         Scanner input = new Scanner(System.in);
-        System.out.print("\n[1] Enviar solicitação de amizade\n");
-        System.out.print("\n[2] Visualizar solicitações de amizade\n");
-        System.out.print("_________________________\n\n");
-        System.out.print("Resposta [1-6]: ");
 
         System.out.print("\n\nQuem você quer ter como amigo? (Digite o nome de usuário)\n\n");
         String nameUser = input.next();
