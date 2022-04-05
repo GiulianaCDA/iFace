@@ -7,8 +7,10 @@ public class Profile {
     private String hobbie;
     private String status; 
     private int age;
+
     public ArrayList<User> friends = new ArrayList<User>();
     public ArrayList<User> request = new ArrayList<User>();
+    public ArrayList<Message> messages = new ArrayList<Message>();
 
     public Profile(){
         
@@ -112,21 +114,21 @@ public class Profile {
             System.out.println("Hobbie: " + this.hobbie);
         }
         else {
-            System.out.println("Hobbie: não existe");
+            System.out.println("Hobbie: cadastrado");
         }
 
         if(this.status != null){
             System.out.println("Status: " + this.status);
         }
         else {
-            System.out.println("Status: não existe");
+            System.out.println("Status: não cadastrado");
         }
 
         if(this.age != 0){
             System.out.println("Idade: " + this.age);
         }
         else{
-            System.out.println("Idade: não existe");
+            System.out.println("Idade: não cadastrado");
         }
 
         if(friends.size() != 0){
@@ -134,7 +136,15 @@ public class Profile {
                 System.out.println(i.name + " ");
             } 
         }
+        else{
+            System.out.println("Não possui amigos ainda.");
+        }
 
+        if(messages.size() != 0){
+            for(Message i : messages) {   
+                System.out.println("\nMensagem de " + i.sender +":\n" + i.text + "\n");
+            }   
+        }
     }
 
     public ArrayList<User> Friend(ArrayList<User> users, User currentUser){   
