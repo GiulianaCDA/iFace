@@ -46,7 +46,7 @@ public class Feed {
 
         for(User i : allusers){
             if(i.nameUser.equals(nameUser)){
-                System.out.print("\n---- Feed de " + i.name + "-----\n");
+                System.out.print("\n---- Feed de " + i.name + "-----\n\n");
                 if(i.profile.feed.locked == false){
                     for(Message m : i.profile.feed.messages){
                         System.out.print(m.text + "\n");
@@ -76,7 +76,7 @@ public class Feed {
 
     public void setControl(){
         System.out.print("\n\n-- Quem pode ver seu feed? --\n");
-        System.out.print("\n[1] Somente amigos\n");
+        System.out.print("\n[1] Somente amigos");
         System.out.print("\n[2] Todos\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
@@ -96,3 +96,6 @@ public class Feed {
         }
     }
 }
+
+
+// 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

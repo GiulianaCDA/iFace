@@ -28,11 +28,11 @@ public class Profile {
 
         System.out.print("\n-- O que você deseja editar? --\n");
 
-        System.out.print("\n[1] Nome \n");
-        System.out.print("\n[2] Nome de usuário \n");
-        System.out.print("\n[3] Hobbie \n");
-        System.out.print("\n[4] Estado civil \n");
-        System.out.print("\n[5] Idade \n");
+        System.out.print("\n[1] Nome ");
+        System.out.print("\n[2] Nome de usuário ");
+        System.out.print("\n[3] Hobbie ");
+        System.out.print("\n[4] Estado civil");
+        System.out.print("\n[5] Idade ");
         System.out.print("\n[6] Senha \n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-6]: ");
@@ -116,7 +116,7 @@ public class Profile {
             System.out.println("Hobbie: " + this.hobbie);
         }
         else {
-            System.out.println("Hobbie: cadastrado");
+            System.out.println("Hobbie: não cadastrado");
         }
 
         if(this.status != null){

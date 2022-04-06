@@ -60,7 +60,7 @@ public class Community {
 
             int j=1;
             for(Community i : allCommunities){
-                System.out.println("["+j+"] " + i.name);
+                System.out.println("["+j+"] " + i.name + " - " + i.description);
                 j++;
             }
             System.out.print("_________________________\n\n");

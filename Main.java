@@ -7,18 +7,18 @@ public class Main {
     public static void menu(boolean exists){
 
         if(!exists){
-            System.out.print("\n----- BEM VINDO AO IFACE! -----\n");
+            System.out.print("\n--- BEM VINDO AO IFACE! ---");
         }
 
         System.out.print("\n\n-- Escolha uma ação --\n");
-        System.out.print("\n[1] Cadastrar usuário\n");
-        System.out.print("\n[2] Editar perfil\n");
-        System.out.print("\n[3] Adicionar/aceitar amigo\n");
-        System.out.print("\n[4] Enviar mensagem\n");
-        System.out.print("\n[5] Recuperar informações\n");
-        System.out.print("\n[6] Comunidades\n");
-        System.out.print("\n[7] Feed de notícias\n");
-        System.out.print("\n[8] Login\n");
+        System.out.print("\n[1] Cadastrar usuário");
+        System.out.print("\n[2] Editar perfil");
+        System.out.print("\n[3] Adicionar/aceitar amigo");
+        System.out.print("\n[4] Enviar mensagem");
+        System.out.print("\n[5] Recuperar informações");
+        System.out.print("\n[6] Comunidades");
+        System.out.print("\n[7] Feed de notícias");
+        System.out.print("\n[8] Login");
         System.out.print("\n[9] Logout\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-7]: ");
