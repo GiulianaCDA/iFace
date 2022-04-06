@@ -135,7 +135,7 @@ public class Profile {
 
         if(friends.size() != 0){
             System.out.println("Amigos: ");
-            for(User i : request) {   
+            for(User i : friends) {   
                 System.out.println(i.name + " ");
             } 
         }
@@ -180,6 +180,8 @@ public class Profile {
                     option = input.nextInt();
                     if(option == 1){
                         friends.add(i);
+                        i.profile.friends.add(currentUser);
+                        
                         System.out.print("\nSolicitação aceita! \n");
                     } 
                     else{

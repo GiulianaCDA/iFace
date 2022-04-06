@@ -34,17 +34,17 @@ public class Feed {
         Message newMessage = new Message(user.name, message); 
         messages.add(newMessage);
 
-        System.out.print("\nMensagem publicada!\n");
+        System.out.print("\nMensagem publicada!\n\n");
         return;
     }
 
-    public void viewFeed(ArrayList<User> users){
+    public void viewFeed(User user, ArrayList<User> allusers){
 
         System.out.print("\n\nVisualizar o feed do usuário (nickname): \n\n");
         Scanner input = new Scanner(System.in);
         String nameUser = input.next();
 
-        for(User i : users){
+        for(User i : allusers){
             if(i.nameUser.equals(nameUser)){
                 System.out.print("\n---- Feed de " + i.name + "-----\n");
                 if(i.profile.feed.locked == false){
@@ -53,25 +53,30 @@ public class Feed {
                     }
                 }
                 else{
-                    if(i.profile.friends.contains(nameUser)){ 
-                        for(Message m : i.profile.feed.messages){
-                            System.out.print(m.text + "\n");
-                        }   
+                    boolean find = false;
+                    for(User u : user.profile.friends){
+                        if(u.nameUser.equals(nameUser)){
+                            find = true;
+                            for(Message m : u.profile.feed.messages){
+                                System.out.print(m.text + "\n");
+                            }
+                            return;
+                        }
                     }
-                    else{
-                        System.out.print("\nEsse feed é privado.\n");
+
+                    if(find == false){
+                        System.out.print("\nEsse usuário possui o feed privado ou não existe.\n");
                     }
                 }
                 return;
             }
         }
-        System.out.print("\nUsuário não encontrado. \n");
 
     }
 
     public void setControl(){
         System.out.print("\n\n-- Quem pode ver seu feed? --\n");
-        System.out.print("\n[1] Somendo amigos\n");
+        System.out.print("\n[1] Somente amigos\n");
         System.out.print("\n[2] Todos\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
@@ -82,9 +87,11 @@ public class Feed {
         switch(option){
             case 1:
                 this.locked = true;
+                System.out.print("\nAlteração feita!\n");
                 break;
             case 2:
                 this.locked = false;
+                System.out.print("\nAlteração feita!\n");
                 break;
         }
     }

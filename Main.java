@@ -138,7 +138,7 @@ public class Main {
                             currentUser.profile.feed.post(currentUser);
                             break;
                         case 2:
-                            currentUser.profile.feed.viewFeed(users);
+                            currentUser.profile.feed.viewFeed(currentUser, users);
                             break;
                         case 3:
                             currentUser.profile.feed.setControl();
