@@ -19,7 +19,8 @@ public class Main {
         System.out.print("\n[6] Comunidades");
         System.out.print("\n[7] Feed de notícias");
         System.out.print("\n[8] Login");
-        System.out.print("\n[9] Logout\n");
+        System.out.print("\n[9] Logout");
+        System.out.print("\n[10] Remover conta\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-7]: ");
     }
@@ -183,6 +184,10 @@ public class Main {
                 currentUser = null;
                 System.out.print("\n\n Logout feito! \n\n");
                 time();
+            }
+
+            else if(option == 10) {
+                //removeCommunities();
             }
         }
         
