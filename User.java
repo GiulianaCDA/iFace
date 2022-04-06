@@ -21,15 +21,17 @@ public class User {
 
         String name, nameUser, password;
         Scanner input = new Scanner(System.in);
+        Scanner messageReceiver = new Scanner(System.in);
+        messageReceiver.useDelimiter("\n");
 
         System.out.print("\n\n-- CADASTRO DE USUÁRIO --\n");
-        System.out.print("\nDigite seu primeiro nome: ");
-        name = input.next();
+        System.out.print("\nNome: ");
+        name = messageReceiver.next( );
 
-        System.out.print("Digite seu nome de usuário: ");
+        System.out.print("Nome de usuário: ");
         nameUser = input.next();
 
-        System.out.print("Digite uma senha forte: ");
+        System.out.print("Senha: ");
         password = input.next();
 
         User new_user = new User(name, nameUser, password);

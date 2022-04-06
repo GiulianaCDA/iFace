@@ -12,9 +12,9 @@ public class Feed {
 
     public static int menu(){
         System.out.print("\n\n-- Escolha uma ação --\n");
-        System.out.print("\n[1] Fazer post\n");
-        System.out.print("\n[2] Visualizar feed de usuário\n");
-        System.out.print("\n[3] Controle de visualização\n");
+        System.out.print("\n[1] Fazer post");
+        System.out.print("\n[2] Visualizar feed de usuário");
+        System.out.print("\n[3] Controle de visualização");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-3]: ");
 
@@ -43,6 +43,14 @@ public class Feed {
         System.out.print("\n\nVisualizar o feed do usuário (nickname): \n\n");
         Scanner input = new Scanner(System.in);
         String nameUser = input.next();
+
+        if(user.nameUser.equals(nameUser)){
+            System.out.print("\n---- Feed de " + user.name + "-----\n\n");
+            for(Message m : user.profile.feed.messages){;
+                System.out.print("-" + m.text + "\n" + "-");
+            }
+            return;
+        }
 
         for(User i : allusers){
             if(i.nameUser.equals(nameUser)){

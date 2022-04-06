@@ -83,7 +83,7 @@ public class Message {
 
         System.out.print("\n-- Enviar mensagem para: --\n");
         System.out.print("\n[1] Um amigo ");
-        System.out.print("\n[2] Uma comunidade");
+        System.out.print("\n[2] Uma comunidade\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
         int option = input.nextInt();

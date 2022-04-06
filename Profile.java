@@ -47,7 +47,7 @@ public class Profile {
 
         System.out.print("\n-- O que você deseja fazer? --\n");
 
-        System.out.print("\n[1] Enviar solicitação \n");
+        System.out.print("\n[1] Enviar solicitação");
         System.out.print("\n[2] Verificar solitações \n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
@@ -63,10 +63,13 @@ public class Profile {
         int option = menuEdit();
         Scanner input = new Scanner(System.in);
 
+        Scanner messageReceiver = new Scanner(System.in);
+        messageReceiver.useDelimiter("\n");
+
         switch(option) {
             case 1:
                 System.out.print("\nNovo nome: ");
-                String name = input.next();
+                String name = messageReceiver.next( );
                 user.setName(name);
                 System.out.print("\nEdição feita com sucesso! \n");
                 break;
@@ -80,14 +83,14 @@ public class Profile {
 
             case 3:
                 System.out.print("\nHobbie: ");
-                String hobbie = input.next();
+                String hobbie = messageReceiver.next( );
                 user.profile.setHobbie(hobbie);
                 System.out.print("\nEdição feita com sucesso! \n");
                 break;
 
             case 4:
                 System.out.print("\nNovo estado civil: ");
-                String status = input.next();
+                String status = messageReceiver.next( );
                 user.profile.setStatus(status);
                 System.out.print("\nEdição feita com sucesso! \n");
                 break;
@@ -123,7 +126,7 @@ public class Profile {
             System.out.println("Status: " + this.status);
         }
         else {
-            System.out.println("Status: não cadastrado");
+            System.out.println("Estado civil: não cadastrado");
         }
 
         if(this.age != 0){
@@ -172,7 +175,7 @@ public class Profile {
                 for(User i : request){
 
                     System.out.print("\n" + i.name + " quer ser seu amigo\n");
-                    System.out.print("\n[1] Aceitar \n");
+                    System.out.print("\n[1] Aceitar");
                     System.out.print("\n[2] Recusar \n");
                     System.out.print("_________________________\n\n");
                     System.out.print("Resposta [1-2]: ");
