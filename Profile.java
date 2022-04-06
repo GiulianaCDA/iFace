@@ -133,12 +133,13 @@ public class Profile {
         }
 
         if(friends.size() != 0){
+            System.out.println("Amigos: ");
             for(User i : request) {   
                 System.out.println(i.name + " ");
             } 
         }
         else{
-            System.out.println("Não possui amigos ainda.");
+            System.out.println("Amigos: Não possui amigos ainda.");
         }
 
         if(messages.size() != 0){

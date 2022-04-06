@@ -87,7 +87,7 @@ public class Main {
 
             else if(option == 4){
                 if(currentUser != null){
-                    Message.sendMessage(currentUser, users);
+                    Message.sendMessage(currentUser, users, allCommunities);
                 }
                 else{
                     System.out.print("\n\n Faça login. \n\n");
@@ -100,6 +100,7 @@ public class Main {
                 if(currentUser != null){
                     currentUser.printUser();
                     currentUser.profile.printProfile();
+                    Community.printMessages(currentUser, allCommunities);
                 }
                 else{
                     System.out.print("\n\n Faça login. \n\n");
@@ -114,8 +115,7 @@ public class Main {
 
                     switch(choice){
                         case 1:
-                            Community newCommunity = Community.createCommunity(currentUser);
-                            allCommunities.add(newCommunity);
+                            allCommunities = Community.createCommunity(currentUser, allCommunities);
                             break;
                         case 2:
                             allCommunities = Community.enterCommunity(currentUser, allCommunities);

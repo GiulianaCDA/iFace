@@ -62,7 +62,7 @@ public class User {
 
         for(User i : users) {   
 
-            if(i.nameUser.equals(name)){ 
+            if((i.nameUser.equals(name)) && (i.password.equals(password))){ 
                 return i;
             } 
         }  

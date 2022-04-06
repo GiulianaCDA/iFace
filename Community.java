@@ -2,15 +2,17 @@ import java.util.Scanner;
 import java.util.ArrayList; 
 
 public class Community {
-    public String manager;
+    public User manager;
     public String name;
     public String description;
     public  ArrayList<User> members = new ArrayList<User>();
+    public ArrayList<Message> messages = new ArrayList<Message>();
 
-    public Community(String name, String manager, String description) {
+    public Community(String name, User user, String description) {
         this.name = name;
-        this.manager = manager;
+        this.manager = user;
         this.description = description;
+        this.members.add(user);
     }
 
     public static int menu(){
@@ -27,7 +29,8 @@ public class Community {
 
     }
 
-    public static Community createCommunity(User user) {
+    public static ArrayList<Community> createCommunity(User user, ArrayList<Community> allCommunities) {
+
         Scanner input = new Scanner(System.in);
         Scanner text = new Scanner(System.in);
         text.useDelimiter("\n");
@@ -37,12 +40,15 @@ public class Community {
 
         System.out.print("\nDescrição da comunidade: ");
         String description = text.next( );
+        String nameUser = user.nameUser;
 
-        Community newCommunity = new Community(name, user.nameUser, description);
+        Community newCommunity = new Community(name, user, description);
+        user.profile.communities.add(newCommunity);
+        allCommunities.add(newCommunity);
 
-        System.out.print("\nSua comunidade foi criada!\n ");
+        System.out.print("\nSua comunidade foi criada!\n");
 
-        return newCommunity;
+        return allCommunities;
     }
 
     public static ArrayList<Community> enterCommunity(User user, ArrayList<Community> allCommunities) {
@@ -75,6 +81,27 @@ public class Community {
 
         return allCommunities;
 
+    }
+
+    public static void printMessages(User user, ArrayList<Community> allCommunities){
+
+        ArrayList<Community> communities = new ArrayList<Community>();
+        String nameUser = user.nameUser;
+
+        for(Community i : allCommunities){
+            for(User j : i.members){
+                if(j.nameUser.equals(nameUser)){
+                    communities.add(i);
+                }
+            }
+        }
+
+        for(Community i : communities){
+            for(Message m : i.messages){
+                System.out.print("\n\nMensagem de " + m.sender + " na comunidade " + i.name + "\n");
+                System.out.print("\n" + m.text + "\n");
+            }
+        }
     }
 
 }
