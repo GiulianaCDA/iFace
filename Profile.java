@@ -8,6 +8,7 @@ public class Profile {
     private String status; 
     private int age;
 
+    public Feed feed = new Feed();
     public ArrayList<User> friends = new ArrayList<User>();
     public ArrayList<User> request = new ArrayList<User>();
     public ArrayList<Message> messages = new ArrayList<Message>();

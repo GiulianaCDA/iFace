@@ -17,8 +17,9 @@ public class Main {
         System.out.print("\n[4] Enviar mensagem\n");
         System.out.print("\n[5] Recuperar informações\n");
         System.out.print("\n[6] Comunidades\n");
-        System.out.print("\n[7] Login\n");
-        System.out.print("\n[8] Logout\n");
+        System.out.print("\n[7] Feed de notícias\n");
+        System.out.print("\n[8] Login\n");
+        System.out.print("\n[9] Logout\n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-7]: ");
     }
@@ -128,8 +129,32 @@ public class Main {
 
                 time();
             }
+            else if(option == 7){
+                if(currentUser != null){
+                    int feedChoice = Feed.menu();
 
-            else if(option == 7) {
+                    switch(feedChoice){
+                        case 1:
+                            currentUser.profile.feed.post(currentUser);
+                            break;
+                        case 2:
+                            currentUser.profile.feed.viewFeed(users);
+                            break;
+                        case 3:
+                            currentUser.profile.feed.setControl();
+                    }
+
+                    time();
+                }
+                else{
+                    System.out.print("\n\n Faça login. \n\n");
+
+                }
+                
+                time();
+            }
+
+            else if(option == 8) {
                 if(currentUser == null && exists == true){
                     User response = User.login(users);
 
@@ -154,7 +179,7 @@ public class Main {
                 time();
             }
 
-            else if(option == 8) {
+            else if(option == 9) {
                 currentUser = null;
                 System.out.print("\n\n Logout feito! \n\n");
                 time();
