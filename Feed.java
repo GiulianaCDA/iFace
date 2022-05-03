@@ -15,7 +15,7 @@ public class Feed {
         System.out.print("\n[1] Fazer post");
         System.out.print("\n[2] Visualizar feed de usuário");
         System.out.print("\n[3] Controle de visualização");
-        System.out.print("_________________________\n\n");
+        System.out.print("\n_________________________\n\n");
         System.out.print("Resposta [1-3]: ");
 
         Scanner input = new Scanner(System.in);

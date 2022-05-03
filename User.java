@@ -52,6 +52,7 @@ public class User {
 
     public static User login(ArrayList<User> users){ 
 
+
         Scanner input = new Scanner(System.in);
 
         System.out.print("\nNome de usuário: ");
@@ -71,6 +72,7 @@ public class User {
 
         return null;
     }
+    
     public void setName(String newName){
         this.name = newName;
     }

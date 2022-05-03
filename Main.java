@@ -78,7 +78,7 @@ public class Main {
 
             else if(option == 3) {  
                 if(currentUser != null){
-                    users = currentUser.profile.Friend(users, currentUser);
+                    users = currentUser.profile.manageRequestFriend(users, currentUser);
                 }
                 else{
                     System.out.print("\n\n Faça login. \n\n");
@@ -130,6 +130,7 @@ public class Main {
 
                 time();
             }
+            
             else if(option == 7){
                 if(currentUser != null){
                     int feedChoice = Feed.menu();
@@ -187,7 +188,7 @@ public class Main {
             }
 
             else if(option == 10) {
-                //removeCommunities();
+                Community.removeUserCommunity(currentUser, allCommunities);
             }
         }
         

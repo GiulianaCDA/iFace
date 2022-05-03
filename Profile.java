@@ -10,7 +10,7 @@ public class Profile {
 
     public Feed feed = new Feed();
     public ArrayList<User> friends = new ArrayList<User>();
-    public ArrayList<User> request = new ArrayList<User>();
+    private ArrayList<User> request = new ArrayList<User>();
     public ArrayList<Message> messages = new ArrayList<Message>();
     public ArrayList<Community> communities = new ArrayList<Community>();
 
@@ -153,7 +153,7 @@ public class Profile {
         }
     }
 
-    public ArrayList<User> Friend(ArrayList<User> users, User currentUser){   
+    public ArrayList<User> manageRequestFriend(ArrayList<User> users, User currentUser){   
 
         int option = menuFriend(); 
         Scanner input = new Scanner(System.in);

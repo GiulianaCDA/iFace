@@ -104,4 +104,28 @@ public class Community {
         }
     }
 
+    public static void removeUserCommunity(User user, ArrayList<Community> allcommunities){
+
+        for(Community i : allcommunities){
+            if(i.manager == user){
+                allcommunities.remove(i);
+            }
+        }
+
+        for(Community i: allcommunities){
+            for(User u: i.members){
+                if(u == user){
+                    i.members.remove(u);
+                }
+            }
+        }
+
+        for(Community i: allcommunities){
+            for(Message m: i.messages){
+                if(m.sender == user.name){
+                    i.messages.remove(m);
+                }
+            }
+        }
+    }
 }
