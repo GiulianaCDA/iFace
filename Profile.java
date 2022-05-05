@@ -199,6 +199,13 @@ public class Profile {
         return users;
 
     }
+
+    public static void removeFriendsList(User user, ArrayList<User> allusers){
+        for(User u : allusers){
+            u.profile.friends.remove(user);
+        }
+    }
+
     public void setHobbie(String newHobbie) {
         this.hobbie = newHobbie;
     }

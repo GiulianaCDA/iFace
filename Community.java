@@ -52,7 +52,7 @@ public class Community {
     }
 
     public static ArrayList<Community> enterCommunity(User user, ArrayList<Community> allCommunities) {
-
+        
         if(allCommunities.size() != 0){
 
             System.out.print("\nEscolha uma comunidade para entrar: \n");
@@ -104,28 +104,16 @@ public class Community {
         }
     }
 
-    public static void removeUserCommunity(User user, ArrayList<Community> allcommunities){
+    public static ArrayList<Community> removeUserCommunity(User user, ArrayList<Community> allcommunities){
+
+        ArrayList<Community> noUserCommunities = new ArrayList<Community>();
 
         for(Community i : allcommunities){
-            if(i.manager == user){
-                allcommunities.remove(i);
-            }
+            if(i.manager != user){
+                noUserCommunities.add(i);
+            }          
         }
 
-        for(Community i: allcommunities){
-            for(User u: i.members){
-                if(u == user){
-                    i.members.remove(u);
-                }
-            }
-        }
-
-        for(Community i: allcommunities){
-            for(Message m: i.messages){
-                if(m.sender == user.name){
-                    i.messages.remove(m);
-                }
-            }
-        }
+        return noUserCommunities;
     }
 }

@@ -85,4 +85,10 @@ public class User {
         this.password = newPassword;
     }
     
+    public static ArrayList<User> removeUser(ArrayList<User> users, User currentUser){
+
+        users.remove(currentUser);
+
+        return users;
+    }
 }

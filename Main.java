@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.print.event.PrintEvent;
+
 import java.util.ArrayList; 
 
 
@@ -9,11 +12,10 @@ public class Main {
         if(!exists){
             System.out.print("\n--- BEM VINDO AO IFACE! ---");
         }
-
         System.out.print("\n\n-- Escolha uma ação --\n");
         System.out.print("\n[1] Cadastrar usuário");
         System.out.print("\n[2] Editar perfil");
-        System.out.print("\n[3] Adicionar/aceitar amigo");
+        System.out.print("\n[3] Adicionar amigo");
         System.out.print("\n[4] Enviar mensagem");
         System.out.print("\n[5] Recuperar informações");
         System.out.print("\n[6] Comunidades");
@@ -22,7 +24,7 @@ public class Main {
         System.out.print("\n[9] Logout");
         System.out.print("\n[10] Remover conta\n");
         System.out.print("_________________________\n\n");
-        System.out.print("Resposta [1-7]: ");
+        System.out.print("Resposta [1-10]: ");
     }
 
     public static void time(){
@@ -48,7 +50,7 @@ public class Main {
 
 
         while(run){
-
+            
             menu(exists);
 
             Scanner input = new Scanner(System.in);
@@ -188,7 +190,12 @@ public class Main {
             }
 
             else if(option == 10) {
-                Community.removeUserCommunity(currentUser, allCommunities);
+               allCommunities = Community.removeUserCommunity(currentUser, allCommunities);
+               users = User.removeUser(users, currentUser);
+               Profile.removeFriendsList(currentUser, users);
+               currentUser = null;
+               System.out.print("\n\n Conta removida! \n\n");
+               time();
             }
         }
         
