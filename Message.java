@@ -36,7 +36,7 @@ public class Message {
 
         String nameUser = user.nameUser;
         ArrayList<Community> communities = new ArrayList<Community>();
-f
+
         for(Community i : allcommunities){
             for(User j : i.members){
                 if(j.nameUser == nameUser){

@@ -2,15 +2,13 @@
 
 O iFace é um sistema referente à disciplina de Projeto de Software e consiste numa rede de relacionamento com algumas funcionalidades. 
 
-## Funcionalidades Implementadas até 19:00
+### Funcionalidades
 
 ### 1. Criação de usuário
 Permite um usuário criar uma conta no iFace, sendo necessário um nome, nome de usuário e senha.
 
-### 2. Criação/Edição de Perfil
+### 2. Edição de Perfil
 Permite um usuário cadastrado do iFace criar/editar atributos de seu perfil. 
-
-## Funcionalidades Implementadas após 19:00
 
 ### 3. Adição de Amigos
 Permite a um usuário cadastrado do iFace adicionar
@@ -48,3 +46,11 @@ notícias
 Permite a um usuário definir o controle de
 visualização das mensagens do Feed (somente
 amigos ou todos podem visualizar as mensagens)
+
+### 11. Remoção de conta
+Permite que um usuário remova sua conta do iFace, retirando todas as suas ações
+do sistema.
+
+### Diagrama de classes
+
+<img src="https://github.com/GiulianaCDA/iFace/main/classes.jpeg">
