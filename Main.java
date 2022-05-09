@@ -192,7 +192,7 @@ public class Main {
             else if(option == 10) {
                allCommunities = Community.removeUserCommunity(currentUser, allCommunities);
                users = User.removeUser(users, currentUser);
-               Profile.removeFriendsList(currentUser, users);
+               Friends.removeFriendsList(currentUser, users);
                currentUser = null;
                System.out.print("\n\n Conta removida! \n\n");
                time();
