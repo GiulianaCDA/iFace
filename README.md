@@ -53,4 +53,4 @@ do sistema.
 
 ### Diagrama de classes
 
-<img src="https://github.com/GiulianaCDA/iFace/blob/main/classes.jpeg">
+<img src="https://github.com/GiulianaCDA/iFace/blob/main/diagrama.jpeg">
