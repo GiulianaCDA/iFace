@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class Main {
 
     public static void menu(boolean exists){
-
         if(!exists){
             System.out.print("\n--- BEM VINDO AO IFACE! ---");
         }
@@ -38,7 +37,6 @@ public class Main {
 
     }
 
-   
     public static void main(String[] args) {
 
         ArrayList<User> users = new ArrayList<User>();

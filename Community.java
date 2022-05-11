@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList; 
 
 public class Community {
-    public User manager;
+    private User manager;
     public String name;
     public String description;
     public  ArrayList<User> members = new ArrayList<User>();

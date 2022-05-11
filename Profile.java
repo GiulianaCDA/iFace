@@ -150,14 +150,15 @@ public class Profile implements Friends{
                 String nameUser = input.next();
                 
                 for(User i : users) {   
-        
                     if(i.nameUser.equals(nameUser)){ 
                         i.profile.request.add(currentUser);
                     } 
                 }  
                 System.out.print("\nSolicitação enviada!\n");
+                break;
 
             case 2:
+                if(currentUser.profile.request.size() == 0) System.out.print("\nNão há nenhuma solicitação\n\n");
                 for(User i : request){
 
                     System.out.print("\n" + i.name + " quer ser seu amigo\n");
