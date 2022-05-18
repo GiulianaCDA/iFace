@@ -54,7 +54,6 @@ public class Main {
             Scanner input = new Scanner(System.in);
             int option = input.nextInt();
 
-                
             if(option == 1) {
 
                 exists = true;
@@ -113,7 +112,7 @@ public class Main {
 
             else if(option == 6) {
                 if(currentUser != null){
-                    int choice = Community.menu();
+                    int choice = Community.Menu();
 
                     switch(choice){
                         case 1:

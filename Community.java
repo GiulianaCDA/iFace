@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList; 
+import java.util.InputMismatchException; 
 
 public class Community {
     private User manager;
@@ -15,15 +16,26 @@ public class Community {
         this.members.add(user);
     }
 
-    public static int menu(){
+    
+    public static int Menu(){
         System.out.print("\n-- O que você deseja fazer? --\n");
-        System.out.print("\n[1] Criar comunidade \n");
+        System.out.print("\n[1] Criar comunidade");
         System.out.print("\n[2] Entrar em comunidade \n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
-
         Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
+        int option = 0;
+
+        while (option == 0) {
+            try {
+                option = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("\nOps... você digitou caracteres. Precisamos que digite apenas números.\n");
+                System.out.println("\nResposta [1-2]\n");
+            }
+            input.nextLine();
+
+        } 
 
         return option;
 

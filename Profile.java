@@ -1,5 +1,6 @@
 import java.util.Scanner;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.InputMismatchException; 
 
 
 public class Profile implements Friends{
@@ -24,7 +25,7 @@ public class Profile implements Friends{
         this.age = age;
     }
 
-    public static int menuEdit(){
+    public static void menuEdit(){
 
         System.out.print("\n-- O que você deseja editar? --\n");
 
@@ -36,16 +37,31 @@ public class Profile implements Friends{
         System.out.print("\n[6] Senha \n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-6]: ");
-
+    }
+    public static int getMenu(){
         Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
+        int option = 0;
+
+        menuEdit();
+
+        while (option == 0) {
+            try {
+                option = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("\nOps... você digitou caracteres. Precisamos que digite apenas números.\n");
+                menuEdit();
+            }
+            input.nextLine();
+
+        } 
 
         return option;
+        
     }
 
     public static User editProfile(User user){
 
-        int option = menuEdit();
+        int option = getMenu();
         Scanner input = new Scanner(System.in);
 
         Scanner messageReceiver = new Scanner(System.in);
@@ -81,10 +97,26 @@ public class Profile implements Friends{
                 break;
 
             case 5:
-                System.out.print("\nNova idade: ");
-                int age = input.nextInt();
-                user.profile.setAge(age);
+                int age = 0;
+                
+                while(age == 0){
+                    try {
+                        System.out.print("\nNova idade: ");
+                        age = input.nextInt();
+                        if(age < 6 || age > 120){
+                             System.out.println("\nÉ necessário ter entre 6 a 120 anos.\n");
+                             age = 0;
+                        }
+                        
+                    } catch (InputMismatchException e) {
+                        System.out.println("\nOps... você digitou caracteres. Precisamos que digite apenas números.\n");
+                    }
+                    input.nextLine();
+                }
+
+                
                 System.out.print("\nEdição feita com sucesso! \n");
+
                 break;
             
             case 6:
@@ -197,5 +229,17 @@ public class Profile implements Friends{
 
     public void setAge(int newAge){
         this.age = newAge;
+    }
+
+    public static class IdadeNaoPermitidaException extends Exception {
+        private static final long serialVersionUID = 4928599035264976611L;
+
+        public IdadeNaoPermitidaException(String message) {
+            super(message);
+        }
+     
+        public IdadeNaoPermitidaException(Throwable t) {
+            super(t);
+        }
     }
 }
