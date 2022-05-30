@@ -57,10 +57,8 @@ public class Main {
             if(option == 1) {
 
                 exists = true;
-                User newUser = User.createUser();
-                users.add(newUser);
+                User newUser = User.createUser(users);
                 currentUser = newUser;
-
                 time();
             }
 

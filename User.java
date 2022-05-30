@@ -17,9 +17,10 @@ public class User {
         this.profile = new Profile();
     }
 
-    public static User createUser(){
+    public static User createUser(ArrayList<User> users){
 
         String name, nameUser, password;
+        boolean exists;
         Scanner input = new Scanner(System.in);
         Scanner messageReceiver = new Scanner(System.in);
         messageReceiver.useDelimiter("\n");
@@ -36,7 +37,16 @@ public class User {
 
         User new_user = new User(name, nameUser, password);
 
-        System.out.print("\n- USUÁRIO CADASTRADO! -");
+        exists = exists(users, new_user.nameUser);
+
+        if(exists){
+            System.out.print("\n- Ops..esse nome de usuário já existe -\n");
+            return null;
+        } 
+        else{
+            users.add(new_user);
+            System.out.print("\n- Usuário cadastrado! -\n");
+        }
 
         return new_user;
     }
@@ -85,6 +95,16 @@ public class User {
         this.password = newPassword;
     }
     
+    public static boolean exists(ArrayList<User> users, String nameUser){
+
+        for(User u : users){
+            if(u.nameUser.equals(nameUser)){
+                return true;
+            }
+        }
+        return false;
+    }
+   
     public static ArrayList<User> removeUser(ArrayList<User> users, User currentUser){
 
         users.remove(currentUser);
