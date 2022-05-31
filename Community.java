@@ -52,17 +52,11 @@ public class Community {
 
             System.out.print("\nEscolha uma comunidade para entrar: \n");
             System.out.print("_________________________\n\n");
-
-            int j=1;
-            for(Community i : allCommunities){
-                System.out.println("["+j+"] " + i.name + " - " + i.description);
-                j++;
-            }
+            showCommunities(allCommunities);
             System.out.print("_________________________\n\n");
             System.out.print("Resposta [1-2]: ");
 
-            Scanner input = new Scanner(System.in);
-            int option = input.nextInt();
+            int option = Exceptions.optionValidator(1, 2);
             int index = option - 1;
 
             allCommunities.get(index).members.add(user);
@@ -96,6 +90,14 @@ public class Community {
                 System.out.print("\n\nMensagem de " + m.sender + " na comunidade " + i.name + "\n");
                 System.out.print("\n" + m.text + "\n");
             }
+        }
+    }
+
+    public static void showCommunities(ArrayList<Community> allCommunities){
+        int j=1;
+        for(Community i : allCommunities){
+            System.out.println("["+j+"] " + i.name + " - " + i.description);
+            j++;
         }
     }
 
