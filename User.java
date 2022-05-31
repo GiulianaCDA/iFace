@@ -20,7 +20,6 @@ public class User {
     public static User createUser(ArrayList<User> users){
 
         String name, nickName, password;
-        boolean exists;
         Scanner input = new Scanner(System.in);
         Scanner messageReceiver = new Scanner(System.in);
         messageReceiver.useDelimiter("\n");
@@ -37,9 +36,9 @@ public class User {
 
         User new_user = new User(name, nickName, password);
 
-        exists = exists(users, new_user.nickName);
+        User userFind = exists(users, new_user.nickName);
 
-        if(exists){
+        if(userFind != null){
             System.out.print("\nOps..esse nome de usuário já existe\n");
             return null;
         } 
@@ -95,14 +94,14 @@ public class User {
         this.password = newPassword;
     }
     
-    public static boolean exists(ArrayList<User> users, String nickName){
+    public static User exists(ArrayList<User> users, String nickName){
 
         for(User u : users){
             if(u.nickName.equals(nickName)){
-                return true;
+                return u;
             }
         }
-        return false;
+        return null;
     }
    
     public static ArrayList<User> removeUser(ArrayList<User> users, User currentUser){

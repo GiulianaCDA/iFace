@@ -54,7 +54,7 @@ public class Community {
             System.out.print("_________________________\n\n");
             showCommunities(allCommunities);
             System.out.print("_________________________\n\n");
-            System.out.print("Resposta [1-2]: ");
+            System.out.print("Resposta [1-"+allCommunities.size()+"]:");
 
             int option = Exceptions.optionValidator(1, 2);
             int index = option - 1;
@@ -65,7 +65,8 @@ public class Community {
 
         }
         else{
-            System.out.print("\nNão há comunidades ainda.");
+            System.out.print("\nNão há comunidades ainda.\n");
+            Main.time();
         }
 
         return allCommunities;

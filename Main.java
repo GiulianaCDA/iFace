@@ -136,9 +136,10 @@ public class Main {
             
             else if(option == 7){
                 if(currentUser != null){
-                    int feedChoice = Feed.menu();
+                    Feed.menu();
+                    int choice = Exceptions.optionValidator(1, 3);
 
-                    switch(feedChoice){
+                    switch(choice){
                         case 1:
                             currentUser.profile.feed.post(currentUser);
                             break;

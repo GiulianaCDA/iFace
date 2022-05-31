@@ -153,8 +153,8 @@ public class Profile implements Friends{
 
     @Override
     public ArrayList<User> manageRequestFriend(ArrayList<User> users, User currentUser){   
-
-        int option = Friends.menuFriend(); 
+        Friends.menuFriend();
+        int option = Exceptions.optionValidator(1, 2);
         Scanner input = new Scanner(System.in);
 
         switch(option){
@@ -162,14 +162,10 @@ public class Profile implements Friends{
                 System.out.print("\n\nEnviar solicitação para (nickname): \n\n");
                 String nickName = input.next();
                 
-                boolean exists = User.exists(users, nickName);
+                User userFind = User.exists(users, nickName);
 
-                if(exists){
-                    for(User i : users) {   
-                        if(i.nickName.equals(nickName)){ 
-                            i.profile.request.add(currentUser);
-                        } 
-                    }  
+                if(userFind != null){
+                    userFind.profile.request.add(currentUser);
                     System.out.print("\nSolicitação enviada!\n");
                 }
                 else{
@@ -188,7 +184,7 @@ public class Profile implements Friends{
                     System.out.print("_________________________\n\n");
                     System.out.print("Resposta [1-2]: ");
 
-                    option = input.nextInt();
+                    option = Exceptions.optionValidator(1, 2);
                     if(option == 1){
                         friends.add(i);
                         i.profile.friends.add(currentUser);
@@ -221,7 +217,6 @@ public class Profile implements Friends{
     }
 
     public static class IdadeNaoPermitidaException extends Exception {
-        private static final long serialVersionUID = 4928599035264976611L;
 
         public IdadeNaoPermitidaException(String message) {
             super(message);

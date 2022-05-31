@@ -78,6 +78,11 @@ public class Message {
 
     }
     
+    public static void showMessages(ArrayList<Message> messages){
+        for(Message m : messages){
+            System.out.print(m.text + "\n");
+        }
+    }
     public static void sendMessage(User user, ArrayList<User> users, ArrayList<Community>allcommunities){
         Scanner input = new Scanner(System.in);
 
@@ -86,7 +91,7 @@ public class Message {
         System.out.print("\n[2] Uma comunidade\n");                                                  
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
-        int option = input.nextInt();
+        int option = Exceptions.optionValidator(1, 2);
 
         switch(option){
             case 1:
