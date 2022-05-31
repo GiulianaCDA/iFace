@@ -77,8 +77,8 @@ public class Profile implements Friends{
 
             case 2:
                 System.out.print("\nNovo nome de usuário: ");
-                String nameUser = input.next();
-                user.setNameUser(nameUser);
+                String nickName = input.next();
+                user.setnickName(nickName);
                 System.out.print("\nEdição feita com sucesso! \n");
                 break;
 
@@ -103,7 +103,7 @@ public class Profile implements Friends{
                     try {
                         System.out.print("\nNova idade: ");
                         age = input.nextInt();
-                        if(age < 6 || age > 120){
+                        if(age < 6 || age > 120){ 
                              System.out.println("\nÉ necessário ter entre 6 a 120 anos.\n");
                              age = 0;
                         }
@@ -179,14 +179,22 @@ public class Profile implements Friends{
         switch(option){
             case 1:
                 System.out.print("\n\nEnviar solicitação para (nickname): \n\n");
-                String nameUser = input.next();
+                String nickName = input.next();
                 
-                for(User i : users) {   
-                    if(i.nameUser.equals(nameUser)){ 
-                        i.profile.request.add(currentUser);
-                    } 
-                }  
-                System.out.print("\nSolicitação enviada!\n");
+                boolean exists = User.exists(users, nickName);
+
+                if(exists){
+                    for(User i : users) {   
+                        if(i.nickName.equals(nickName)){ 
+                            i.profile.request.add(currentUser);
+                        } 
+                    }  
+                    System.out.print("\nSolicitação enviada!\n");
+                }
+                else{
+                    System.out.print("\nOps...usuário não encontrado!\n");
+                }
+
                 break;
 
             case 2:

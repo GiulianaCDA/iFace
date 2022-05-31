@@ -52,7 +52,7 @@ public class Community {
 
         System.out.print("\nDescrição da comunidade: ");
         String description = text.next( );
-        String nameUser = user.nameUser;
+        String nickName = user.nickName;
 
         Community newCommunity = new Community(name, user, description);
         user.profile.communities.add(newCommunity);
@@ -98,11 +98,11 @@ public class Community {
     public static void printMessages(User user, ArrayList<Community> allCommunities){
 
         ArrayList<Community> communities = new ArrayList<Community>();
-        String nameUser = user.nameUser;
+        String nickName = user.nickName;
 
         for(Community i : allCommunities){
             for(User j : i.members){
-                if(j.nameUser.equals(nameUser)){
+                if(j.nickName.equals(nickName)){
                     communities.add(i);
                 }
             }

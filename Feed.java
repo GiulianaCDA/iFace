@@ -42,9 +42,9 @@ public class Feed {
 
         System.out.print("\n\nVisualizar o feed do usuário (nickname): \n\n");
         Scanner input = new Scanner(System.in);
-        String nameUser = input.next();
+        String nickName = input.next();
 
-        if(user.nameUser.equals(nameUser)){
+        if(user.nickName.equals(nickName)){
             System.out.print("\n---- Feed de " + user.name + "-----\n\n");
             for(Message m : user.profile.feed.messages){;
                 System.out.print("-" + m.text + "\n" + "-");
@@ -53,7 +53,7 @@ public class Feed {
         }
 
         for(User i : allusers){
-            if(i.nameUser.equals(nameUser)){
+            if(i.nickName.equals(nickName)){
                 System.out.print("\n---- Feed de " + i.name + "-----\n\n");
                 if(i.profile.feed.locked == false){
                     for(Message m : i.profile.feed.messages){
@@ -63,7 +63,7 @@ public class Feed {
                 else{
                     boolean find = false;
                     for(User u : user.profile.friends){
-                        if(u.nameUser.equals(nameUser)){
+                        if(u.nickName.equals(nickName)){
                             find = true;
                             for(Message m : u.profile.feed.messages){
                                 System.out.print(m.text + "\n");

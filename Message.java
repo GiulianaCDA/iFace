@@ -16,13 +16,13 @@ public class Message {
         messageReceiver.useDelimiter("\n");
 
         System.out.print("\n\nDestinatário (nickname): \n\n");
-        String nameUser = input.next();
+        String nickName = input.next();
 
         System.out.print("\n\nMensagem: \n\n");
         String message = messageReceiver.next( );
 
         for(User i : user.profile.friends){
-            if(i.nameUser.equals(nameUser)){  
+            if(i.nickName.equals(nickName)){  
                 Message newMessage = new Message(user.name, message); 
                 i.profile.messages.add(newMessage);
                 System.out.print("\n\n Mensagem enviada! \n\n");
@@ -34,12 +34,12 @@ public class Message {
 
     public static void sendCommunityMessage(User user, ArrayList<User>users, ArrayList<Community> allcommunities){
 
-        String nameUser = user.nameUser;
+        String nickName = user.nickName;
         ArrayList<Community> communities = new ArrayList<Community>();
 
         for(Community i : allcommunities){
             for(User j : i.members){
-                if(j.nameUser == nameUser){
+                if(j.nickName == nickName){
                    communities.add(i);
                 }
             }

@@ -1,7 +1,6 @@
 import java.util.Scanner;
-
+import java.util.InputMismatchException; 
 import javax.print.event.PrintEvent;
-
 import java.util.ArrayList; 
 
 
@@ -40,6 +39,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<User> users = new ArrayList<User>();
+        int option = 0;
         ArrayList<Community> allCommunities = new ArrayList<Community>();
 
         boolean run = true;
@@ -52,7 +52,13 @@ public class Main {
             menu(exists);
 
             Scanner input = new Scanner(System.in);
-            int option = input.nextInt();
+            option = input.nextInt();
+
+            if(option < 1 || option > 10){
+                System.out.print("\nOps...digite uma opção entre [1-10]\n\n");
+                time();
+            } 
+            
 
             if(option == 1) {
 
