@@ -61,41 +61,6 @@ public class Feed {
         else{
             System.out.print("\nUsuário não encontrado\n");
         }
-        // if(user.nickName.equals(nickName)){
-        //     System.out.print("\n---- Feed de " + user.name + "-----\n\n");
-        //     for(Message m : user.profile.feed.messages){;
-        //         System.out.print("-" + m.text + "\n" + "-");
-        //     }
-        //     return;
-        // }
-
-        // for(User i : allusers){
-        //     if(i.nickName.equals(nickName)){
-        //         System.out.print("\n---- Feed de " + i.name + "-----\n\n");
-        //         if(i.profile.feed.locked == false){
-        //             for(Message m : i.profile.feed.messages){
-        //                 System.out.print(m.text + "\n");
-        //             }
-        //         }
-        //         else{
-        //             boolean find = false;
-        //             for(User u : user.profile.friends){
-        //                 if(u.nickName.equals(nickName)){
-        //                     find = true;
-        //                     for(Message m : u.profile.feed.messages){
-        //                         System.out.print(m.text + "\n");
-        //                     }
-        //                     return;
-        //                 }
-        //             }
-
-        //             if(find == false){
-        //                 System.out.print("\nEsse usuário possui o feed privado ou não existe.\n");
-        //             }
-        //         }
-        //         return;
-        //     }
-        // }
 
     }
 
