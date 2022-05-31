@@ -39,7 +39,6 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<User> users = new ArrayList<User>();
-        int option = 0;
         ArrayList<Community> allCommunities = new ArrayList<Community>();
 
         boolean run = true;
@@ -52,7 +51,7 @@ public class Main {
             menu(exists);
 
             Scanner input = new Scanner(System.in);
-            option = input.nextInt();
+            int option = Exceptions.optionValidator(1,10);
 
             if(option < 1 || option > 10){
                 System.out.print("\nOps...digite uma opção entre [1-10]\n\n");
@@ -116,7 +115,8 @@ public class Main {
 
             else if(option == 6) {
                 if(currentUser != null){
-                    int choice = Community.Menu();
+                    Community.Menu();
+                    int choice = Exceptions.optionValidator(1, 2);
 
                     switch(choice){
                         case 1:

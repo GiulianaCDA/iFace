@@ -15,30 +15,13 @@ public class Community {
         this.description = description;
         this.members.add(user);
     }
-
     
-    public static int Menu(){
+    public static void Menu(){
         System.out.print("\n-- O que você deseja fazer? --\n");
         System.out.print("\n[1] Criar comunidade");
         System.out.print("\n[2] Entrar em comunidade \n");
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-2]: ");
-        Scanner input = new Scanner(System.in);
-        int option = 0;
-
-        while (option == 0) {
-            try {
-                option = input.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("\nOps... você digitou caracteres. Precisamos que digite apenas números.\n");
-                System.out.println("\nResposta [1-2]\n");
-            }
-            input.nextLine();
-
-        } 
-
-        return option;
-
     }
 
     public static ArrayList<Community> createCommunity(User user, ArrayList<Community> allCommunities) {

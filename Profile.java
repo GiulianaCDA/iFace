@@ -38,30 +38,11 @@ public class Profile implements Friends{
         System.out.print("_________________________\n\n");
         System.out.print("Resposta [1-6]: ");
     }
-    public static int getMenu(){
-        Scanner input = new Scanner(System.in);
-        int option = 0;
-
-        menuEdit();
-
-        while (option == 0) {
-            try {
-                option = input.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("\nOps... você digitou caracteres. Precisamos que digite apenas números.\n");
-                menuEdit();
-            }
-            input.nextLine();
-
-        } 
-
-        return option;
-        
-    }
 
     public static User editProfile(User user){
 
-        int option = getMenu();
+        menuEdit();
+        int option = Exceptions.optionValidator(1, 6);
         Scanner input = new Scanner(System.in);
 
         Scanner messageReceiver = new Scanner(System.in);
