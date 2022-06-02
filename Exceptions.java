@@ -11,7 +11,7 @@ public class Exceptions {
             try {
                 option = input.nextInt();
                 if(option < 1 || option > max){
-                    System.out.println("\nDigite um valor entre ["+min+"-"+max+"]:");
+                    System.out.println("\nDigite um valor entre ["+min+"-"+max+"]: ");
                     option = 0;
                 }
             } catch (InputMismatchException e) {

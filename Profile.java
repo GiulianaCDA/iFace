@@ -164,6 +164,11 @@ public class Profile implements Friends{
                 
                 User userFind = User.exists(users, nickName);
 
+                if(nickName.equals(currentUser.nickName)){
+                    System.out.print("\nOps...esse usuário é você!\n");
+                    return users;
+                }
+
                 if(userFind != null){
                     userFind.profile.request.add(currentUser);
                     System.out.print("\nSolicitação enviada!\n");
