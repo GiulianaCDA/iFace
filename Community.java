@@ -48,21 +48,29 @@ public class Community {
 
     public static ArrayList<Community> enterCommunity(User user, ArrayList<Community> allCommunities) {
         
+        int max = allCommunities.size();
         if(allCommunities.size() != 0){
 
             System.out.print("\nEscolha uma comunidade para entrar: \n");
             System.out.print("_________________________\n\n");
             showCommunities(allCommunities);
             System.out.print("_________________________\n\n");
-            System.out.print("Resposta [1-"+allCommunities.size()+"]:");
+            System.out.print("Resposta [1-"+max+"]:");
 
-            int option = Exceptions.optionValidator(1, 2);
+            int option = Exceptions.optionValidator(1, max);
             int index = option - 1;
 
-            allCommunities.get(index).members.add(user);
+            Community choosenCommunity = allCommunities.get(index);
 
-            System.out.print("\nVocê entrou na comunidade " + allCommunities.get(index).name + "!\n\n");
+            User exists = User.exists(choosenCommunity.members, user.nickName);
 
+            if(exists == null){
+                allCommunities.get(index).members.add(user);
+                System.out.print("\nVocê entrou na comunidade " + allCommunities.get(index).name + "!\n\n");
+            }
+            else{
+                System.out.print("\n\nVocê já faz parte dessa comunidade\n\n");
+            }
         }
         else{
             System.out.print("\nNão há comunidades ainda.\n");
