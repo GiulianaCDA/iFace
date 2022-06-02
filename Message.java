@@ -14,22 +14,27 @@ public class Message {
         Scanner input = new Scanner(System.in);
         Scanner messageReceiver = new Scanner(System.in);
         messageReceiver.useDelimiter("\n");
+        User userFind;
 
         System.out.print("\n\nDestinatário (nickname): \n\n");
         String nickName = input.next();
 
+        userFind = User.exists(user.profile.friends, nickName);
+
+        if(userFind == null)  {
+            System.out.print("\n\nEsse usuário não existe na sua lista de amigos\n\n");
+            return;
+        }
+
         System.out.print("\n\nMensagem: \n\n");
         String message = messageReceiver.next( );
 
-        for(User i : user.profile.friends){
-            if(i.nickName.equals(nickName)){  
-                Message newMessage = new Message(user.name, message); 
-                i.profile.messages.add(newMessage);
-                System.out.print("\n\n Mensagem enviada! \n\n");
-                return;
-            } 
-        }
-        System.out.print("\n\n Usuário não existe no iFace ou na sua lista de amigos \n\n");
+        Message newMessage = new Message(user.name, message); 
+        userFind.profile.messages.add(newMessage);
+        System.out.print("\n\n Mensagem enviada! \n\n");
+        return;
+            
+        
     }
 
     public static void sendCommunityMessage(User user, ArrayList<User>users, ArrayList<Community> allcommunities){
