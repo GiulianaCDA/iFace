@@ -53,12 +53,6 @@ public class Main {
             Scanner input = new Scanner(System.in);
             int option = Exceptions.optionValidator(1,10);
 
-            if(option < 1 || option > 10){
-                System.out.print("\nOps...digite uma opção entre [1-10]\n\n");
-                time();
-            } 
-            
-
             if(option == 1) {
 
                 exists = true;
