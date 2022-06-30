@@ -220,15 +220,4 @@ public class Profile implements Friends{
     public void setAge(int newAge){
         this.age = newAge;
     }
-
-    public static class IdadeNaoPermitidaException extends Exception {
-
-        public IdadeNaoPermitidaException(String message) {
-            super(message);
-        }
-     
-        public IdadeNaoPermitidaException(Throwable t) {
-            super(t);
-        }
-    }
 }
