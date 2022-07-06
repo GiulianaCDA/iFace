@@ -151,58 +151,70 @@ public class Profile implements Friends{
         }
     }
 
+    public void sendFriendRequest(ArrayList<User> users, User currentUser){
+        System.out.print("\n\nEnviar solicitação para (nickname): \n\n");
+        Scanner input = new Scanner(System.in);
+        String nickName = input.next();
+        
+        User userFind = User.exists(users, nickName);
+
+        if(nickName.equals(currentUser.nickName)){
+            System.out.print("\nOps...esse usuário é você!\n");
+            return;
+        }
+
+        if(userFind != null){
+            userFind.profile.request.add(currentUser);
+            System.out.print("\nSolicitação enviada!\n");
+        }
+        else{
+            System.out.print("\nOps...usuário não encontrado!\n");
+        }
+    }
+
+    public void checkFriendRequests(User currentUser){
+        ArrayList<User> requestList = currentUser.profile.request;
+
+        if(requestList.size() == 0){
+            System.out.print("\nNão há nenhuma solicitação\n\n");
+        } 
+
+        for(User userWaiting : request){
+            showRequest(userWaiting);
+            int option = Exceptions.optionValidator(1, 2);
+            
+            if(option == 1){
+                friends.add(userWaiting);
+                userWaiting.profile.friends.add(currentUser);
+                System.out.print("\nSolicitação aceita! \n");
+            } 
+            else{
+                System.out.print("\nSolicitação recusada! \n");
+            }
+        }
+
+        request.clear();
+    }
+
+    public void showRequest(User userWaiting){
+        System.out.print("\n" + userWaiting.name + " quer ser seu amigo\n");
+        System.out.print("\n[1] Aceitar");
+        System.out.print("\n[2] Recusar \n");
+        System.out.print("_________________________\n\n");
+        System.out.print("Resposta [1-2]: ");
+    }
+
     @Override
     public ArrayList<User> manageRequestFriend(ArrayList<User> users, User currentUser){   
         Friends.menuFriend();
         int option = Exceptions.optionValidator(1, 2);
-        Scanner input = new Scanner(System.in);
 
         switch(option){
             case 1:
-                System.out.print("\n\nEnviar solicitação para (nickname): \n\n");
-                String nickName = input.next();
-                
-                User userFind = User.exists(users, nickName);
-
-                if(nickName.equals(currentUser.nickName)){
-                    System.out.print("\nOps...esse usuário é você!\n");
-                    return users;
-                }
-
-                if(userFind != null){
-                    userFind.profile.request.add(currentUser);
-                    System.out.print("\nSolicitação enviada!\n");
-                }
-                else{
-                    System.out.print("\nOps...usuário não encontrado!\n");
-                }
-
-                break;
-
+               sendFriendRequest(users, currentUser);
+               break;
             case 2:
-                if(currentUser.profile.request.size() == 0) System.out.print("\nNão há nenhuma solicitação\n\n");
-                for(User i : request){
-
-                    System.out.print("\n" + i.name + " quer ser seu amigo\n");
-                    System.out.print("\n[1] Aceitar");
-                    System.out.print("\n[2] Recusar \n");
-                    System.out.print("_________________________\n\n");
-                    System.out.print("Resposta [1-2]: ");
-
-                    option = Exceptions.optionValidator(1, 2);
-                    if(option == 1){
-                        friends.add(i);
-                        i.profile.friends.add(currentUser);
-                        
-                        System.out.print("\nSolicitação aceita! \n");
-                    } 
-                    else{
-                        System.out.print("\nSolicitação recusada! \n");
-                    }
-                }
-
-                request.clear();
-                
+                checkFriendRequests(currentUser);
         }
 
         return users;
