@@ -7,7 +7,7 @@ ser utilizada na classe `Main.java`
 A classe `Main.java` possuí diversos ifs de verificação de login
 
 # Long Method
-- `Profile.manageRequestFriend():` Foi aplicado o método extract method para corrigir esse smell. Dessa forma, o método manageRequestFriend originou outros
+- `Profile.manageRequestFriend():` Foi aplicado o padrão extract method para corrigir esse smell. Dessa forma, o método manageRequestFriend originou outros
 dois métodos (sendFriendRequest e checkFriendRequests)
 
 # Dead Code
