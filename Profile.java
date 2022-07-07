@@ -163,12 +163,12 @@ public class Profile implements Friends{
             return;
         }
 
-        if(userFind != null){
-            userFind.profile.request.add(currentUser);
-            System.out.print("\nSolicitação enviada!\n");
+        if(userFind instanceof NullUser){
+            System.out.print("\nOps...usuário não encontrado!\n");
         }
         else{
-            System.out.print("\nOps...usuário não encontrado!\n");
+            userFind.profile.request.add(currentUser);
+            System.out.print("\nSolicitação enviada!\n");
         }
     }
 

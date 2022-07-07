@@ -40,26 +40,26 @@ public class Feed {
         String nickName = input.next();
         User userFind = User.exists(allusers, nickName);
 
-        if(userFind != null){
+        if(userFind instanceof NullUser){
+            System.out.print("\nUsuário não encontrado\n");
+        }
+        else{
             User friendFind = User.exists(user.profile.friends, userFind.nickName);
             ArrayList<Message> messages = userFind.profile.feed.messages;
 
             if(userFind.profile.feed.locked == true){
-                if(friendFind != null){
-                    System.out.print("\n---- Feed de " + userFind.name + "-----\n\n");
-                    Message.showMessages(messages);
+                if(friendFind  instanceof NullUser){
+                    System.out.print("\nEsse feed é restrito à amigos\n");
                 }
                 else{
-                    System.out.print("\nEsse feed é restrito à amigos\n");
+                    System.out.print("\n---- Feed de " + userFind.name + "-----\n\n");
+                    Message.showMessages(messages);
                 }
             }
             else{
                 System.out.print("\n---- Feed de " + userFind.name + "-----\n\n");
                 Message.showMessages(messages);
             }
-        }
-        else{
-            System.out.print("\nUsuário não encontrado\n");
         }
 
     }

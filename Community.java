@@ -64,12 +64,12 @@ public class Community {
 
             User exists = User.exists(choosenCommunity.members, user.nickName);
 
-            if(exists == null){
-                allCommunities.get(index).members.add(user);
-                System.out.print("\nVocê entrou na comunidade " + allCommunities.get(index).name + "!\n\n");
+            if(exists instanceof NullUser){
+                System.out.print("\n\nVocê já faz parte dessa comunidade\n\n");
             }
             else{
-                System.out.print("\n\nVocê já faz parte dessa comunidade\n\n");
+                allCommunities.get(index).members.add(user);
+                System.out.print("\nVocê entrou na comunidade " + allCommunities.get(index).name + "!\n\n");
             }
         }
         else{

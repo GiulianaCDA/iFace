@@ -21,7 +21,7 @@ public class Message {
 
         userFind = User.exists(user.profile.friends, nickName);
 
-        if(userFind == null)  {
+        if(userFind instanceof NullUser)  {
             System.out.print("\n\nEsse usuário não existe na sua lista de amigos\n\n");
             return;
         }

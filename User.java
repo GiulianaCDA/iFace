@@ -38,13 +38,13 @@ public class User {
 
         User userFind = exists(users, new_user.nickName);
 
-        if(userFind != null){
-            System.out.print("\nOps..esse nome de usuário já existe\n");
-            return null;
-        } 
-        else{
+        if(userFind instanceof NullUser){
             users.add(new_user);
             System.out.print("\nUsuário cadastrado\n");
+        } 
+        else{
+            System.out.print("\nOps..esse nome de usuário já existe\n");
+            return null;
         }
 
         return new_user;
@@ -101,7 +101,7 @@ public class User {
                 return u;
             }
         }
-        return null;
+        return new NullUser();
     }
    
     public static ArrayList<User> removeUser(ArrayList<User> users, User currentUser){
